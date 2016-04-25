@@ -10,28 +10,70 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      1247,         46]
-NotebookOptionsPosition[       998,         32]
-NotebookOutlinePosition[      1351,         48]
-CellTagsIndexPosition[      1308,         45]
+NotebookDataLength[      2744,         91]
+NotebookOptionsPosition[      2382,         74]
+NotebookOutlinePosition[      2735,         90]
+CellTagsIndexPosition[      2692,         87]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
- RowBox[{"data", "=", 
-  RowBox[{"Import", "[", 
-   RowBox[{"FileNameJoin", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<fixtures\>\"", ",", 
-      "\"\<output.csv\>\""}], "}"}], "]"}], "]"}]}]], "Input",
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<fixtures\>\"", ",", 
+       "\"\<dataset.csv\>\""}], "}"}], "]"}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.670586982890699*^9, 3.6705870337446833`*^9}, {
-  3.670587198880381*^9, 3.670587226032117*^9}, {3.670587263748581*^9, 
-  3.6705872992090397`*^9}}]
+   3.670587198880381*^9, 3.670587226032117*^9}, {3.670587263748581*^9, 
+   3.6705872992090397`*^9}, 3.670587509625164*^9, {3.67058831930198*^9, 
+   3.670588321349218*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractDataByYear", "[", 
+   RowBox[{"l_List", ",", "y_Integer"}], "]"}], ":=", 
+  RowBox[{"Select", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"DateValue", "[", 
+       RowBox[{
+        RowBox[{"First", "[", "#", "]"}], ",", "\"\<Year\>\""}], "]"}], 
+      "\[Equal]", 
+      RowBox[{"DateValue", "[", 
+       RowBox[{
+        RowBox[{"{", "y", "}"}], ",", "\"\<Year\>\""}], "]"}]}], "&"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.670587713520782*^9, 3.670587720485113*^9}, {
+  3.6705877663339252`*^9, 3.670587848524508*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractDataByWeekday", "[", 
+   RowBox[{"l_List", ",", "w_Symbol"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Select", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"DayName", "[", 
+       RowBox[{"First", "[", "#", "]"}], "]"}], "\[Equal]", "w"}], "&"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.670587881112595*^9, 3.670587935496827*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractHourlyData", "[", "l_List", "]"}], ":=", 
+  RowBox[{"Map", "[", 
+   RowBox[{"Rest", ",", "l"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.670588147085823*^9, 3.67058816812248*^9}, {
+  3.670588214597392*^9, 3.6705882175683613`*^9}}]
 },
 WindowSize->{693, 855},
-WindowMargins->{{Automatic, 243}, {Automatic, 0}},
+WindowMargins->{{Automatic, 111}, {Automatic, 0}},
 FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
 2015)",
 StyleDefinitions->"Default.nb"
@@ -47,7 +89,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 436, 10, 28, "Input"]
+Cell[558, 20, 534, 12, 46, "Input"],
+Cell[1095, 34, 594, 17, 46, "Input"],
+Cell[1692, 53, 411, 11, 46, "Input"],
+Cell[2106, 66, 272, 6, 28, "Input"]
 }
 ]
 *)
