@@ -1,0 +1,133 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4070,        125]
+NotebookOptionsPosition[      3622,        106]
+NotebookOutlinePosition[      3984,        122]
+CellTagsIndexPosition[      3941,        119]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rawdata", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<datum\>\"", ",", 
+        "\"\<rawdata.csv\>\""}], "}"}], "]"}], ",", 
+     RowBox[{"\"\<HeaderLines\>\"", "\[Rule]", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.67325606088623*^9, 3.673256166290904*^9}, {
+  3.6732562015573874`*^9, 3.673256237938601*^9}, {3.673271505616918*^9, 
+  3.673271506831192*^9}, {3.673274256527918*^9, 3.6732742863675528`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataset", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<datum\>\"", ",", 
+        "\"\<dataset.csv\>\""}], "}"}], "]"}], ",", 
+     RowBox[{"\"\<HeaderLines\>\"", "\[Rule]", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.673256252939138*^9, 3.67325628148953*^9}, {
+  3.673274296983961*^9, 3.673274301935495*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data1415", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<datum\>\"", ",", 
+        "\"\<data1415.csv\>\""}], "}"}], "]"}], ",", 
+     RowBox[{"\"\<HeaderLiens\>\"", "\[Rule]", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.673256288404559*^9, 3.673256317984826*^9}, {
+   3.673260835711151*^9, 3.673260877024474*^9}, {3.6732609538404427`*^9, 
+   3.673260955862095*^9}, 3.673271707762144*^9, {3.673271920292315*^9, 
+   3.6732719337402897`*^9}, {3.673274307095729*^9, 3.673274314031196*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"prediction", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<datum\>\"", ",", 
+        "\"\<prediction.csv\>\""}], "}"}], "]"}], ",", 
+     RowBox[{"\"\<HeaderLiens\>\"", "\[Rule]", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6732563218601*^9, 3.673256347656385*^9}, {
+  3.67327419436278*^9, 3.6732741954803057`*^9}, {3.673274319055284*^9, 
+  3.673274323094737*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"holidays", "=", 
+   RowBox[{"DayRange", "[", 
+    RowBox[{
+     RowBox[{"DateObject", "[", 
+      RowBox[{"{", 
+       RowBox[{"2014", ",", "1", ",", "1"}], "}"}], "]"}], ",", 
+     RowBox[{"DateObject", "[", 
+      RowBox[{"{", 
+       RowBox[{"2015", ",", "12", ",", "31"}], "}"}], "]"}], ",", 
+     "\"\<Holiday\>\"", ",", 
+     RowBox[{"HolidayCalendar", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<UnitedStates\>\"", ",", " ", "\"\<Default\>\""}], 
+       "}"}]}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.673261012617113*^9, 3.673261052794688*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<HypothesisTesting`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.673260961920418*^9, 3.673260969523608*^9}}]
+},
+WindowSize->{1080, 1875},
+WindowMargins->{{-1080, Automatic}, {Automatic, -407}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 11, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 589, 14, 28, "Input"],
+Cell[1150, 36, 490, 13, 28, "Input"],
+Cell[1643, 51, 666, 15, 28, "Input"],
+Cell[2312, 68, 545, 14, 28, "Input"],
+Cell[2860, 84, 606, 16, 46, "Input"],
+Cell[3469, 102, 149, 2, 28, "Input"]
+}
+]
+*)
+
